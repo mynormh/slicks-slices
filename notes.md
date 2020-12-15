@@ -23,3 +23,10 @@
 - Our pages components will usually be the entire page we see and then what we have inside `components/` will be reusable pieces in our pages.
 - Most of the time to change from page to page, instead of using the regular `<a>` tag, we'll use Gatsby's `<Link>` component which will render a link tag but supercharge it with other nice features. This performs a HTML5 pushState and instead of reloading the whole page it'll just change the component.
 - There are times when we'll want to programmatically change the page, like when somebody submits a form, then we can use Gatsby's `navigate` API . And if we pass `replace:true` it'll show up in the browser's history.
+
+## Creating Layouts in Gatsby
+
+- If we want a layout for all of our pages, we can create a `<Layout>` component that will render it's children along with whatever else we want as our layout.
+- Alternatively, we can create a file in our root called `gatsby-browser.js` and let Gatsby know we want it to wrap our pages in our layout component by default by hooking into the `wrapPage` element hook.
+- This will only run in the browser since `gatsby-browser` only runs when our page has been loaded and generated in the browser. But Gatsby also generates everything in the server (since it's server rendered) so we need to also add it to `gatsby-ssr.js`.
+- NOTE: Whenever we modify `gatsby-browser.js`, `gatsby-node.js`, `gatsby-config.js` or `gatsby-ssr.js` we need to restart the build.
