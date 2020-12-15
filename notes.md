@@ -39,3 +39,4 @@
 - One of the nice things Gatsby does for images is that before an image is rendered for the first time it will render a pixelated version of the image as text using base64.
 - Whenever we use an image in Gatsby it will run it through it's compressor but also add a random ID to the name. This allows us to change an image with the same name and not have to ask users to do a hard refresh to see the image change.
 - Styled components allows us to create scoped styles. We using it by putting all our styles inside a template literal that's passed to a Styled component's function and it will return a component. We can then render that component into our page or another component.
+- Any styles added using `createGlobalStyles` will be applied globally.
