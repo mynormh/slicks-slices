@@ -17,3 +17,9 @@
 - The only required folder in a Gatsby project is the `pages/` directory.
 - To create a new page in our website we simple need to add it to our `pages/` directory, if we add `index.js` it'll show this page in the root path `/`.
 - By default Gatsby will create a 404 page for any routes it doesn't find a match for, but most likely we want our own so we just add `404.js`. This doesn't apply in development where Gatsby will provide a sort of debugger page.
+
+## Routing and Navigation in Gatsby
+
+- Our pages components will usually be the entire page we see and then what we have inside `components/` will be reusable pieces in our pages.
+- Most of the time to change from page to page, instead of using the regular `<a>` tag, we'll use Gatsby's `<Link>` component which will render a link tag but supercharge it with other nice features. This performs a HTML5 pushState and instead of reloading the whole page it'll just change the component.
+- There are times when we'll want to programmatically change the page, like when somebody submits a form, then we can use Gatsby's `navigate` API . And if we pass `replace:true` it'll show up in the browser's history.
