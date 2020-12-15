@@ -30,3 +30,12 @@
 - Alternatively, we can create a file in our root called `gatsby-browser.js` and let Gatsby know we want it to wrap our pages in our layout component by default by hooking into the `wrapPage` element hook.
 - This will only run in the browser since `gatsby-browser` only runs when our page has been loaded and generated in the browser. But Gatsby also generates everything in the server (since it's server rendered) so we need to also add it to `gatsby-ssr.js`.
 - NOTE: Whenever we modify `gatsby-browser.js`, `gatsby-node.js`, `gatsby-config.js` or `gatsby-ssr.js` we need to restart the build.
+
+## CSS
+
+- Our styles also need to go through Gatsby since it'll take care of loading only the critical CSS for each page.
+- Using `normalize.css` allows us to set a baseline for all the styles across different browsers.
+- Importing images or CSS is not valid JS but Gatsby allows to import anything into JS files including images and CSS, and it knows not to render those to JS but to CSS or any other valid place.
+- One of the nice things Gatsby does for images is that before an image is rendered for the first time it will render a pixelated version of the image as text using base64.
+- Whenever we use an image in Gatsby it will run it through it's compressor but also add a random ID to the name. This allows us to change an image with the same name and not have to ask users to do a hard refresh to see the image change.
+- Styled components allows us to create scoped styles. We using it by putting all our styles inside a template literal that's passed to a Styled component's function and it will return a component. We can then render that component into our page or another component.
