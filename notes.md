@@ -40,3 +40,10 @@
 - Whenever we use an image in Gatsby it will run it through it's compressor but also add a random ID to the name. This allows us to change an image with the same name and not have to ask users to do a hard refresh to see the image change.
 - Styled components allows us to create scoped styles. We using it by putting all our styles inside a template literal that's passed to a Styled component's function and it will return a component. We can then render that component into our page or another component.
 - Any styles added using `createGlobalStyles` will be applied globally.
+- Any styles added using `styled` will be scoped to that component.
+- In Styled Components, we can affect styles of the children from the parent by creating a class and then assigning that `className` to the child Styled Component.
+
+## CSS Tricks
+
+- A nice way to handle Styled Components is to create a styled component for the component at the top of the file and then select the HTML elements in the styled component to style the children.
+- When doing `transform` if we want to add another transform for example in a pseudo-selector and only change one property this will override all the previous transform properties. A way to get around this is using css variables for each property and then just update the variable in the pseudo-selector.
