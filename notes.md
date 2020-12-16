@@ -47,3 +47,15 @@
 
 - A nice way to handle Styled Components is to create a styled component for the component at the top of the file and then select the HTML elements in the styled component to style the children.
 - When doing `transform` if we want to add another transform for example in a pseudo-selector and only change one property this will override all the previous transform properties. A way to get around this is using css variables for each property and then just update the variable in the pseudo-selector.
+
+## Headless CMS
+
+- The idea of a headless CMS is that there's no frontend, meaning we have to build it.
+- Sanity is a headlessCMS. To start a sanity project we need to install it globally and then do `sanity init`, if we make changes to the sanity config files then we need to run `sanity init --reconfigure`.
+- Sanity provides two things:
+  - Sanity: The API we'll interact with
+  - Sanity Studio: The UI to do CRUD actions.
+- To add a schema ("tables and fields") to Sanity we need to first create our schema in `sanity/schemas/`, import it in `schema.js` and add it to `types` in `createSchema`.
+- Everything in Sanity Studio is a react component so for any property in our schema we can pass it a React component.
+- The type `slug` will add a field which output will be a slug for whatever we entered in the field marked as it's `source`.
+- To add input validation we simply add a property called `validation` which is a function that receives a `Rule` parameter and returns the set of rules by chaining them.
