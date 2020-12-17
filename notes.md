@@ -59,3 +59,5 @@
 - Everything in Sanity Studio is a react component so for any property in our schema we can pass it a React component.
 - The type `slug` will add a field which output will be a slug for whatever we entered in the field marked as it's `source`.
 - To add input validation we simply add a property called `validation` which is a function that receives a `Rule` parameter and returns the set of rules by chaining them.
+- In Sanity most of the fields take an `options` property to alter the default behavior.
+- We can create custom previews of each registry of a document by adding the `preview` property.
