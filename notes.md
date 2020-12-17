@@ -61,3 +61,5 @@
 - To add input validation we simply add a property called `validation` which is a function that receives a `Rule` parameter and returns the set of rules by chaining them.
 - In Sanity most of the fields take an `options` property to alter the default behavior.
 - We can create custom previews of each registry of a document by adding the `preview` property.
+- To create relationships between content types (documents) we add a property type (can be an `array`) and also the `of` property with type `reference` and `to` as the name of the document(s) we want to link it to.
+- One thing with adding arrays to previews is that it's not recommended since we might be over-fetching data. Instead we need to select each field, e.g.: `topping0: 'toppings.0.name'`
