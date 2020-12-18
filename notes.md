@@ -76,3 +76,13 @@
 - `gatsby.config.js` goes in our version control so we don't wanna show sensitive data (secrets) there, so we put secrets in an `.env` file and we use them like `process.ENV.MY_SECRET`. By default Gatsby will surface every secret that starts with `GATSBY_` but not in `gatsby.config.js` so we need to use the `dotenv` module.
 - When sourcing our data from other plugins we need to deploy our GraphQL API, so after configuring everything for Sanity in `gatsby.config.js` we run `sanity graphql deploy production` in the sanity tab. After deploying we get a URL to a GraphQL Playground (very similar to GraphiQL) to our Sanity API so we can query all of our Sanity data there, then we restart our Gatsby server and that should give us all of our data in the Gatsby API.
 - So by the end of this what the `gatsby-source-sanity` plugin does is move our data from our Sanity API to our Gatsby API.
+- There are two types of queries in Gatsby:
+  - Page Queries:
+    - Can be dynamic with variables.
+    - Can only be run on a top level page.
+  - Static Queries:
+    - Can't be dynamic, no variables can be passed in.
+    - Can be run anywhere.
+- One thing in GraphQL is that we need to specify every field we want, we can't query for everything. So we have `Fragments` which are a collection of fields, the Sanity plugin comes with some useful fragments like `GatsbySanityImageFluid`.
+- To get the data from our Gatsby API into our component we use the `graphql` function and pass it our query. By doing this we'll get the results of our query as props into our component.
+- We'll notice that the cool part of right here is that there's no loading state when we're fetching data, when Gatsby shows our page it already has that data.
