@@ -8,4 +8,17 @@ export default {
     siteUrl: `https://gatsby.pizza`,
     description: 'The best pizza place in Hamilton',
   },
+  plugins: [
+    'gatsby-plugin-styled-components',
+    {
+      // This is the name of the plugin added
+      resolve: 'gatsby-source-sanity',
+      options: {
+        projectId: 'ctv7wk8b',
+        dataset: 'production',
+        watchMode: true,
+        token: process.env.SANITY_TOKEN,
+      },
+    },
+  ],
 };
