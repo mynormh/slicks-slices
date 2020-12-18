@@ -65,3 +65,9 @@
 - One thing with adding arrays to previews is that it's not recommended since we might be over-fetching data. Instead we need to select each field, e.g.: `topping0: 'toppings.0.name'`
 - We're in full control of sanity-studio UI too, all of the custom components for Sanity Studio go in `components/`. And to use our component we pass it as the value of `inputComponent` in the schema's field.
 - For custom inputs we need some special functions from sanity: `PatchEvent`, `set` and `unset`. These will allow us to hook into the input's event and pass it as the value of the `onChange` prop. We also need to pass the `inputComponent` prop as a `ref` to let Sanity know that the `ref` is where the actual input is handled and the other stuff in our custom component is not related to the data. And finally we also need to wrap our event handler in the `onChange` prop.
+
+## Getting Data into Gatsby with GaphQL
+
+- The whole idea around Gatsby is that at build time it'll grab all the data it needs (in our case from Sanity), put it in a sort of in-memory DB and then we can query that data via GraphQL queries. Gatsby comes with some queries built-in.
+- To surface our data from whatever source we used into our GraphQL explorer we use plugins, we defined them in `gatsby.config.js`. We can write our own data here and it'll surface it to the explorer.
+- Gatsby plugins are plugins that make it easy to work with other libraries, services, etc. in Gatsby. We specify them in the property `plugins` in `gatsby.config.js` and we can also pass the plugins an options object to override defaults.
