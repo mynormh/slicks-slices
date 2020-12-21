@@ -43,11 +43,6 @@
 - Any styles added using `styled` will be scoped to that component.
 - In Styled Components, we can affect styles of the children from the parent by creating a class and then assigning that `className` to the child Styled Component.
 
-## CSS Tricks
-
-- A nice way to handle Styled Components is to create a styled component for the component at the top of the file and then select the HTML elements in the styled component to style the children.
-- When doing `transform` if we want to add another transform for example in a pseudo-selector and only change one property this will override all the previous transform properties. A way to get around this is using css variables for each property and then just update the variable in the pseudo-selector.
-
 ## Headless CMS
 
 - The idea of a headless CMS is that there's no frontend, meaning we have to build it.
@@ -93,3 +88,9 @@
 - If we have images in a directory, we can source them from our directory and run it through gatsby's plugins `gatsby-transformer-sharp` and `gatsby-plugin-sharp`. This can take a long time since they'll also be done at build time.
 - We can also use services that will create all the image mutations on demand as the user requests them, we use Sanity Image Pipeline which is compatible with `gatsby-image`. Other services: Cloudinary, Imagix.
 - If we have one, we can import all of our data to Sanity from a gzip file with `sanity dataset import ./sample-data/all-sample-data.gz production --replace`
+
+## CSS Tricks
+
+- A nice way to handle Styled Components is to create a styled component for the component at the top of the file and then select the HTML elements in the styled component to style the children.
+- When doing `transform` if we want to add another transform for example in a pseudo-selector and only change one property this will override all the previous transform properties. A way to get around this is using css variables for each property and then just update the variable in the pseudo-selector.
+- `subgrid` is where children of another child will align themselves to a grandparent Grid.
