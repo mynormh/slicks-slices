@@ -86,3 +86,9 @@
 - One thing in GraphQL is that we need to specify every field we want, we can't query for everything. So we have `Fragments` which are a collection of fields, the Sanity plugin comes with some useful fragments like `GatsbySanityImageFluid`.
 - To get the data from our Gatsby API into our component we use the `graphql` function and pass it our query. By doing this we'll get the results of our query as props into our component.
 - We'll notice that the cool part of right here is that there's no loading state when we're fetching data, when Gatsby shows our page it already has that data.
+
+## PUTTIN IN WORK
+
+- Images is something that can make our site slow (compression, size, loading perf, format), luckily for us Gatsby has a special image component to take care of all these things for us called `gatsby-image`.
+- If we have images in a directory, we can source them from our directory and run it through gatsby's plugins `gatsby-transformer-sharp` and `gatsby-plugin-sharp`. This can take a long time since they'll also be done at build time.
+- We can also use services that will create all the image mutations on demand as the user requests them, we use Sanity Image Pipeline which is compatible with `gatsby-image`. Other services: Cloudinary, Imagix.
