@@ -92,3 +92,4 @@
 - Images is something that can make our site slow (compression, size, loading perf, format), luckily for us Gatsby has a special image component to take care of all these things for us called `gatsby-image`.
 - If we have images in a directory, we can source them from our directory and run it through gatsby's plugins `gatsby-transformer-sharp` and `gatsby-plugin-sharp`. This can take a long time since they'll also be done at build time.
 - We can also use services that will create all the image mutations on demand as the user requests them, we use Sanity Image Pipeline which is compatible with `gatsby-image`. Other services: Cloudinary, Imagix.
+- If we have one, we can import all of our data to Sanity from a gzip file with `sanity dataset import ./sample-data/all-sample-data.gz production --replace`
