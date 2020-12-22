@@ -78,7 +78,6 @@ export default function ToppingsFilter() {
       }
     }
   `);
-  console.log({ toppings, pizzas });
   // Count how many pizzas are in each topping
   const toppingsWithCounts = countPizzasInToppings(pizzas.nodes);
   return (
