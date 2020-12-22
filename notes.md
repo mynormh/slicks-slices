@@ -89,6 +89,10 @@
 - We can also use services that will create all the image mutations on demand as the user requests them, we use Sanity Image Pipeline which is compatible with `gatsby-image`. Other services: Cloudinary, Imagix.
 - If we have one, we can import all of our data to Sanity from a gzip file with `sanity dataset import ./sample-data/all-sample-data.gz production --replace`
 
+## Toppings Filter with Static Queries
+
+- As mentioned before if we want to use a query inside a component it has to be a static query. To create a static query we use Gatsby's custom hook `useStaticQuery`.
+
 ## CSS Tricks
 
 - A nice way to handle Styled Components is to create a styled component for the component at the top of the file and then select the HTML elements in the styled component to style the children.
