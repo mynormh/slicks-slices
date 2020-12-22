@@ -98,3 +98,9 @@
 - A nice way to handle Styled Components is to create a styled component for the component at the top of the file and then select the HTML elements in the styled component to style the children.
 - When doing `transform` if we want to add another transform for example in a pseudo-selector and only change one property this will override all the previous transform properties. A way to get around this is using css variables for each property and then just update the variable in the pseudo-selector.
 - `subgrid` is where children of another child will align themselves to a grandparent Grid.
+
+## Making Gatsby Dynamic
+
+- In the `gatsby-node` file we can hook into the `createPages` API from Gatsby to dynamically create pages.
+- The `createPages` gives us the `graphql` and `actions` params, which we can use to query our data and also create pages by using `actions.createPage()` and passing the path to the new page, the component (only the path) and pass any data to the component as props with `context`.
+- In `gatsby-node` we'll want to query just enough data to get our page rendered. Then in the actual component we can query all the data needed for that page. Querying all the data in `gatsby-node` is completely valid but this way we can modify only the page component when we want to get more or less data and adjust the UI in the same file.
