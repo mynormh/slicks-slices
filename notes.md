@@ -104,3 +104,9 @@
 - In the `gatsby-node` file we can hook into the `createPages` API from Gatsby to dynamically create pages.
 - The `createPages` gives us the `graphql` and `actions` params, which we can use to query our data and also create pages by using `actions.createPage()` and passing the path to the new page, the component (only the path) and pass any data to the component as props with `context`.
 - In `gatsby-node` we'll want to query just enough data to get our page rendered. Then in the actual component we can query all the data needed for that page. Querying all the data in `gatsby-node` is completely valid but this way we can modify only the page component when we want to get more or less data and adjust the UI in the same file.
+
+## Dynamically creating Toppings Pages
+
+- The functions in `createPages()` don't depend on each other so instead of awaiting for each of them to be done, we can do it concurrently with `Promise.all`. This will make our build faster.
+- In the case of the single topping page we don't want a new page, we'll simply use the pizzas page and modify the query. This is a work-around to the static query limitation in the `ToppingsFilter` component where we couldn't tell what the active topping was, now we can simply pass it as a prop in `pageContext`. This turns out to not be needed since Gatsby puts an `aria-current='page'` on the link that's currently active so we can style the link with that attribte.
+- The way we filter an array varies from implementation to implementation, in Gatsby we do it with `elemMatch`.
