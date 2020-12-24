@@ -82,31 +82,29 @@
 - To get the data from our Gatsby API into our component we use the `graphql` function and pass it our query. By doing this we'll get the results of our query as props into our component.
 - We'll notice that the cool part of right here is that there's no loading state when we're fetching data, when Gatsby shows our page it already has that data.
 
-## PUTTIN IN WORK
+## Puttin in work
 
 - Images is something that can make our site slow (compression, size, loading perf, format), luckily for us Gatsby has a special image component to take care of all these things for us called `gatsby-image`.
 - If we have images in a directory, we can source them from our directory and run it through gatsby's plugins `gatsby-transformer-sharp` and `gatsby-plugin-sharp`. This can take a long time since they'll also be done at build time.
 - We can also use services that will create all the image mutations on demand as the user requests them, we use Sanity Image Pipeline which is compatible with `gatsby-image`. Other services: Cloudinary, Imagix.
 - If we have one, we can import all of our data to Sanity from a gzip file with `sanity dataset import ./sample-data/all-sample-data.gz production --replace`
-
-## Toppings Filter with Static Queries
-
 - As mentioned before if we want to use a query inside a component it has to be a static query. To create a static query we use Gatsby's custom hook `useStaticQuery`.
-
-## CSS Tricks
-
-- A nice way to handle Styled Components is to create a styled component for the component at the top of the file and then select the HTML elements in the styled component to style the children.
-- When doing `transform` if we want to add another transform for example in a pseudo-selector and only change one property this will override all the previous transform properties. A way to get around this is using css variables for each property and then just update the variable in the pseudo-selector.
-- `subgrid` is where children of another child will align themselves to a grandparent Grid.
 
 ## Making Gatsby Dynamic
 
 - In the `gatsby-node` file we can hook into the `createPages` API from Gatsby to dynamically create pages.
 - The `createPages` gives us the `graphql` and `actions` params, which we can use to query our data and also create pages by using `actions.createPage()` and passing the path to the new page, the component (only the path) and pass any data to the component as props with `context`.
 - In `gatsby-node` we'll want to query just enough data to get our page rendered. Then in the actual component we can query all the data needed for that page. Querying all the data in `gatsby-node` is completely valid but this way we can modify only the page component when we want to get more or less data and adjust the UI in the same file.
-
-## Dynamically creating Toppings Pages
-
 - The functions in `createPages()` don't depend on each other so instead of awaiting for each of them to be done, we can do it concurrently with `Promise.all`. This will make our build faster.
 - In the case of the single topping page we don't want a new page, we'll simply use the pizzas page and modify the query. This is a work-around to the static query limitation in the `ToppingsFilter` component where we couldn't tell what the active topping was, now we can simply pass it as a prop in `pageContext`. This turns out to not be needed since Gatsby puts an `aria-current='page'` on the link that's currently active so we can style the link with that attribte.
 - The way we filter an array varies from implementation to implementation, in Gatsby we do it with `elemMatch`.
+- To source (get data into the Gatsby API) nodes (each piece of data) from external APIs we make use of the `sourceNodes()` function in `gatsby-node`. Similar to the `createPage()` function we also get a `params` object here.
+- When creating nodes we need to pass both the actual data and also meta data about the node, this is where the functions, in the `params` object, like `createNodeId` and `createContentDigest` come in handy. Once we have both the node's data and meta-data we pass it to the `actions.createNode()` API from Gatsby and we'll be able to see this data in our Gatsby GraphQL API.
+- The cool thing about this last part is that we only need to give Gatsby the data and it will automatically build the GraphQL schemas needed for that data.
+- `fetch` is not available in node so we have to use `isomorphic-fetch` in `gatsby-node`.
+
+## CSS Tricks
+
+- A nice way to handle Styled Components is to create a styled component for the component at the top of the file and then select the HTML elements in the styled component to style the children.
+- When doing `transform` if we want to add another transform for example in a pseudo-selector and only change one property this will override all the previous transform properties. A way to get around this is using css variables for each property and then just update the variable in the pseudo-selector.
+- `subgrid` is where children of another child will align themselves to a grandparent Grid.
