@@ -107,6 +107,9 @@
 
 - To get the gatsby image in CSS we don't do `img` because of all the stuff Gatsby adds to our image, we do `.gatsby-image-wrapper`.
 - When showing all the slicemasters the hotspot option comes in handy in case an image is cropped in a weird way, so we can use the hotspot circle in sanity studio to chose the hotspot and we need `hotspot: true` in `schemas/person.js`.
+- Pagination in Gatsby is a little different since we need to know how many pages there are at build time, we can't have query URL params like `?page=2`.
+- We can surface data to a Gatsby page from our `.env` file we have to prefix it with `GATSBY_` and then we can access it from `process.env`. That's why we wouldn't be able to surface something like our sanity token.
+- Then what we do is create pages for each page of slicemasters we'll want. So for example `slicemasters/1` will contain the first n amount of slicemasters at build time.
 
 ## CSS Tricks
 
