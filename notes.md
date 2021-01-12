@@ -110,6 +110,7 @@
 - Pagination in Gatsby is a little different since we need to know how many pages there are at build time, we can't have query URL params like `?page=2`.
 - We can surface data to a Gatsby page from our `.env` file we have to prefix it with `GATSBY_` and then we can access it from `process.env`. That's why we wouldn't be able to surface something like our sanity token.
 - Then what we do is create pages for each page of slicemasters we'll want. So for example `slicemasters/1` will contain the first n amount of slicemasters at build time.
+- In our Gatsby GraphQL API we can pass the `limit` and `skip` variables to our query, to get only a specific range of data.
 
 ## CSS Tricks
 
