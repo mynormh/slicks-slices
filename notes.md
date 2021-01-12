@@ -103,6 +103,11 @@
 - The cool thing about this last part is that we only need to give Gatsby the data and it will automatically build the GraphQL schemas needed for that data.
 - `fetch` is not available in node so we have to use `isomorphic-fetch` in `gatsby-node`.
 
+## Pages & Filtering
+
+- To get the gatsby image in CSS we don't do `img` because of all the stuff Gatsby adds to our image, we do `.gatsby-image-wrapper`.
+- When showing all the slicemasters the hotspot option comes in handy in case an image is cropped in a weird way, so we can use the hotspot circle in sanity studio to chose the hotspot and we need `hotspot: true` in `schemas/person.js`.
+
 ## CSS Tricks
 
 - A nice way to handle Styled Components is to create a styled component for the component at the top of the file and then select the HTML elements in the styled component to style the children.

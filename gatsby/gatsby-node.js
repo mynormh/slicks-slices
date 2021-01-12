@@ -62,7 +62,7 @@ async function fetchBeersAndTurnIntoNodes({
   createContentDigest,
 }) {
   // 1. Fetch a list of beers
-  const res = await fetch('https://sampleapis.com/beers/api/ale');
+  const res = await fetch('https://api.sampleapis.com/beers/ale');
   const beers = await res.json();
   // 2. Loop over each beer and create a node for that beer
   for (const beer of beers) {
