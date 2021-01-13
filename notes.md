@@ -111,6 +111,10 @@
 - We can surface data to a Gatsby page from our `.env` file we have to prefix it with `GATSBY_` and then we can access it from `process.env`. That's why we wouldn't be able to surface something like our sanity token.
 - Then what we do is create pages for each page of slicemasters we'll want. So for example `slicemasters/1` will contain the first n amount of slicemasters at build time.
 - In our Gatsby GraphQL API we can pass the `limit` and `skip` variables to our query, to get only a specific range of data.
+- Sometimes adding `GATSBY_HOT_LOADER=fast-refresh` to the `.env` file can make the development workflow easier by refreshing the site after a broken build.
+- We choose to disabled the next/previous links instead of conditionally rendering because when there's no previous all the pagination layout shifts.
+- To get the pagination to go to `/slicemasters` instead of `/slicemasters/1` we can't use `pageContext.pageSize` to get the pageSize because `/slicemasters` is not being generated in `gatsby-node` it's created by just being in our `pages/` dir, so we won't get any of the `context` we passed in `gatsby-node` and in this case we'll need to calculate it again from `process.env`.
+- Since we do all of our current page styling with css we have to add a special condition to add the class name `current` when the page is 1 because the link in nav is `/slicemasters` and the one in our pagination is `/slicemasters/`.
 
 ## CSS Tricks
 
