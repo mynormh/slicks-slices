@@ -115,6 +115,8 @@
 - We choose to disabled the next/previous links instead of conditionally rendering because when there's no previous all the pagination layout shifts.
 - To get the pagination to go to `/slicemasters` instead of `/slicemasters/1` we can't use `pageContext.pageSize` to get the pageSize because `/slicemasters` is not being generated in `gatsby-node` it's created by just being in our `pages/` dir, so we won't get any of the `context` we passed in `gatsby-node` and in this case we'll need to calculate it again from `process.env`.
 - Since we do all of our current page styling with css we have to add a special condition to add the class name `current` when the page is 1 because the link in nav is `/slicemasters` and the one in our pagination is `/slicemasters/`.
+- It's a convention to use a `templates/` dir to have all of our "pages" that can be reused multiple times, compared to the ones in `pages/` that should be for pages that aren't meant to be reusable. They could also go in `components/` but it's a nice differentiation because templates are entire pages instead of single components in a page.
+- To access data from `gatsby-node` down in the component, we get the data we pass in `context` both in our component with the `pageContext` prop and in our graphql query just by adding a variable like `$myVar`.
 
 ## CSS Tricks
 
