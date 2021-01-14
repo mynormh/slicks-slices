@@ -117,6 +117,11 @@
 - Since we do all of our current page styling with css we have to add a special condition to add the class name `current` when the page is 1 because the link in nav is `/slicemasters` and the one in our pagination is `/slicemasters/`.
 - It's a convention to use a `templates/` dir to have all of our "pages" that can be reused multiple times, compared to the ones in `pages/` that should be for pages that aren't meant to be reusable. They could also go in `components/` but it's a nice differentiation because templates are entire pages instead of single components in a page.
 - To access data from `gatsby-node` down in the component, we get the data we pass in `context` both in our component with the `pageContext` prop and in our graphql query just by adding a variable like `$myVar`.
+- By default we're missing a lot of SEO and QOL things like meta tags and a title tag. That's where `react-helmet` comes in, it allows us to add tags in react helmet and transport them from wherever we put them into the document's head.
+- It'd be exhausting to write the head's tags in every component, that's why we create a `<SEO />` component that covers the defaults for all pages and then we can override it on individual pages that need to.
+- When we get into pre-rendering we need the `gatsby-plugin-react-helmet` plugin to integrate `react-helmet`.
+- `titleTemplate` will append whatever text we set after `%s` to the current page title.
+- We can access our site metadata in `gatsby-config` by using `useStaticQuery`.
 
 ## CSS Tricks
 
