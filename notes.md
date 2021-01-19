@@ -123,6 +123,12 @@
 - `titleTemplate` will append whatever text we set after `%s` to the current page title.
 - We can access our site metadata in `gatsby-config` by using `useStaticQuery`.
 
+## Order Form, Custom Hooks and State Management
+
+- To make it easy to control our form values we created a custom hook which basically takes all the initial values and then just returns the updated values and the updater function.
+- Due to the way Gatsby works we can't import and use a GraphQL query from one page into another. We have to create one for each page, even if they're the same.
+- `Intl.NumberFormat` is a built into JS utility that helps us format numbers into different things like currencies by passing the locales and currency name.
+
 ## CSS Tricks
 
 - A nice way to handle Styled Components is to create a styled component for the component at the top of the file and then select the HTML elements in the styled component to style the children.
