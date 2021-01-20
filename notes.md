@@ -128,6 +128,7 @@
 - To make it easy to control our form values we created a custom hook which basically takes all the initial values and then just returns the updated values and the updater function.
 - Due to the way Gatsby works we can't import and use a GraphQL query from one page into another. We have to create one for each page, even if they're the same.
 - `Intl.NumberFormat` is a built into JS utility that helps us format numbers into different things like currencies by passing the locales and currency name.
+- For our `<PizzaOrder />` component we can't use directly the `removeFromOrder` function from the `usePizza` custom hook because we need it to be bound to our `pizzas` state in `order.js`, if we were to use the hook again it'd create a separate `pizzas` state.
 
 ## CSS Tricks
 
