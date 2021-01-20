@@ -23,6 +23,7 @@ const OrderStyles = styled.form`
       grid-column: span 1;
       /* Chrome is weird about Grid and fieldsets, so we add a fixed height to fix it :)  */
       height: 600px;
+      grid-template-rows: repeat(2, minmax(80px, 1fr));
     }
   }
   /* @media (max-width: 900px) {
