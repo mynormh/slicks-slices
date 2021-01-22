@@ -134,6 +134,11 @@
 
 - When navigating between pages the page state will be lost because Gatsby will mount and unmount each page component. That's why we need to move our state up, in Gatsby the highest level in our tree is `<Root>` so using `wrapRootElement` in `gatsby-browser` and `gatsby-ssr` we wrap the root component in our order context provider, and we can delete our state in `usePizza` and access it via `useContext`.
 - For the issue when deleting items from our order that were for the same pizza, it was due to using the pizza ID as our order `key`. To fix this we continue using the ID but append the index at the end.
+- When Gatsby builds our project it returns only HTML, CSS and JS and Sanity provides all of our data at build time. But when we want to do something in the backend like sending an email or a contact form, we can't do that in Gatsby. But Gatsby works very well with serverless function. Serverless function are like a regular node server but instead of having an entire server that does lots of things we have a single function that will shut down after it does its thing.
+- Once we have Netlify in our Gatsby project, when we do `npm run netlify` this will run `netlify dev` which in turn will give us a URL and it will proxy our Gatsby website so this will be the URL we run our website from now on.
+- To use netlify functions (AWS lambda under the hood) we need to add `netlify.toml` and point to our `functions/` dir. For each function we need a folder and a file with the same name.
+- In these functions we can import or require anything installed in our global `package.json` but sometimes our serverless functions get so big that we want an individual `package.json` for a single function. In Netlify we can simply do `npm init` inside the function folder and it'll be scoped to that function.
+- For emails normally we'd use a transactional email provider (e.g.: Postmark) but for test purposes we can use `ethereal.mail` by the nodemailer team which will create a temporary test email account. We create an account with them and use the given credentials.
 
 ## CSS Tricks
 
