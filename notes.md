@@ -130,6 +130,11 @@
 - `Intl.NumberFormat` is a built into JS utility that helps us format numbers into different things like currencies by passing the locales and currency name.
 - For our `<PizzaOrder />` component we can't use directly the `removeFromOrder` function from the `usePizza` custom hook because we need it to be bound to our `pizzas` state in `order.js`, if we were to use the hook again it'd create a separate `pizzas` state.
 
+## Serverless Functions
+
+- When navigating between pages the page state will be lost because Gatsby will mount and unmount each page component. That's why we need to move our state up, in Gatsby the highest level in our tree is `<Root>` so using `wrapRootElement` in `gatsby-browser` and `gatsby-ssr` we wrap the root component in our order context provider, and we can delete our state in `usePizza` and access it via `useContext`.
+- For the issue when deleting items from our order that were for the same pizza, it was due to using the pizza ID as our order `key`. To fix this we continue using the ID but append the index at the end.
+
 ## CSS Tricks
 
 - A nice way to handle Styled Components is to create a styled component for the component at the top of the file and then select the HTML elements in the styled component to style the children.
