@@ -43,7 +43,7 @@ export default function usePizza({ pizzas, values }) {
         headers: {
           'Content-Type': 'application/json',
         },
-        boyd: JSON.stringify(body),
+        body: JSON.stringify(body),
       }
     );
 

@@ -140,6 +140,8 @@
 - In these functions we can import or require anything installed in our global `package.json` but sometimes our serverless functions get so big that we want an individual `package.json` for a single function. In Netlify we can simply do `npm init` inside the function folder and it'll be scoped to that function.
 - For emails normally we'd use a transactional email provider (e.g.: Postmark) but for test purposes we can use `ethereal.mail` by the nodemailer team which will create a temporary test email account. We create an account with them and use the given credentials.
 - We put the base of our serverless functions URL in `.env` to make it flexible in case we don't wanna deploy it to Netlify.
+- In our serverless function we get whatever we sent in the request's payload in `event.body`.
+- We add server side required validation, we just keep an array of the name of the required fields and check if they are in `event.body`, if they're not then we send a status `400` and an error message.
 
 ## CSS Tricks
 
