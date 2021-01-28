@@ -143,6 +143,7 @@
 - In our serverless function we get whatever we sent in the request's payload in `event.body`.
 - We add server side required validation, we just keep an array of the name of the required fields and check if they are in `event.body`, if they're not then we send a status `400` and an error message.
 - Since we're in charge of the API we make sure to do validation server-side, could be both server and frontend.
+- Every time we create a submittable form that's public in the internet we have to integrate some sort of mechanism to guard against bots. One of them is a honeypot, a field that the users are not supposed to fill out so if a bot fills it we will detect that because regular users wouldn't do that. Don't name it `honey` nor use the `hidden` HTML attribute because bots are smart enough to detect that.
 
 ## CSS Tricks
 
