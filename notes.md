@@ -144,6 +144,9 @@
 - We add server side required validation, we just keep an array of the name of the required fields and check if they are in `event.body`, if they're not then we send a status `400` and an error message.
 - Since we're in charge of the API we make sure to do validation server-side, could be both server and frontend.
 - Every time we create a submittable form that's public in the internet we have to integrate some sort of mechanism to guard against bots. One of them is a honeypot, a field that the users are not supposed to fill out so if a bot fills it we will detect that because regular users wouldn't do that. Don't name it `honey` nor use the `hidden` HTML attribute because bots are smart enough to detect that.
+- It's a good idea to have some one-offs in our homepage, these are quick access info like the persons working in store that day or the pizzas that are available by the slice.
+- Just like we can create our own inputs in Sanity, we can also create our own sidebar.
+- We hide the Settings from sidebar because we don't want anyone to actually interact with it directly, we want them to use it via the Home Page sidebar menu.
 
 ## CSS Tricks
 
