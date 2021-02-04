@@ -147,6 +147,13 @@
 - It's a good idea to have some one-offs in our homepage, these are quick access info like the persons working in store that day or the pizzas that are available by the slice.
 - Just like we can create our own inputs in Sanity, we can also create our own sidebar.
 - We hide the Settings from sidebar because we don't want anyone to actually interact with it directly, we want them to use it via the Home Page sidebar menu.
+- Data that needs to be updated at run time shouldn't go through Gatsby's GraphQL API because that's all built at build time. For this type of data we can go directly to the source of the data from the client side. For sanity we can get the GraphQL production URL with `sanity graphql list`, remember to deploy any changes before to see them in the production playground.
+- We add the sanity GrahpQL endpoint in our env file so remember that when we do this we need to restart our process with `npm run netlify`.
+- When trying to fetch from the sanity endpoint we'll run into CORS issues, to fix this we need to go to our project's settings webpage (`sanity manage` in CLI or logging in `sanity.io`) in Settings>API, and add `http://localhost:*` as new origin and allowing credentials.
+- With our implementation our custom hook is called once but the component is rerendered 2 times since the state is updated 3 times:
+  1. First time when it creates the state variables (`hotSlices: undefiend, slicemasters: undefined`).
+  1. Second time when we set hotSlices state (`hotSlices: [...], slicemasters: undefined)`).
+  1. Third time when we set slicemasters state (`hotSlices: [...], slicemasters: [...])`).
 
 ## CSS Tricks
 
