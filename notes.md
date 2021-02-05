@@ -160,6 +160,11 @@
 - Since fragments are only used on the client-side when making requests in GraphQL, an alternative is to just use a template literal with the fields our fragment would have and interpolate it in the query of the fetch request.
 - Since we're not using Gatsby to fetch the images in our home page, we can't use Gatsby Image. Luckily Sanity supports image resizing in the URL. And since the images will still take a second or two to load we can use Sanity's LQIP (Low Quality Image Placeholder) while they load.
 
+## Building, Deployment and Responsive Design
+
+- First we need to deploy Sanity (our backend), we can host it ourselves (harder) or simply use Sanity Studio by doing `sanity deploy`, and this will return a URL with our sanity CMS deployed. The project needs a `sanity/static` dir for this to work, this folder won't go in version control.
+- If we wanted to host Sanity ourselves we need to host everything inside `sanity/static` wherever we want and add that domain name to our allowed API routes.
+
 ## CSS Tricks
 
 - A nice way to handle Styled Components is to create a styled component for the component at the top of the file and then select the HTML elements in the styled component to style the children.
