@@ -164,6 +164,7 @@
 
 - First we need to deploy Sanity (our backend), we can host it ourselves (harder) or simply use Sanity Studio by doing `sanity deploy`, and this will return a URL with our sanity CMS deployed. The project needs a `sanity/static` dir for this to work, this folder won't go in version control.
 - If we wanted to host Sanity ourselves we need to host everything inside `sanity/static` wherever we want and add that domain name to our allowed API routes.
+- To build or Gatsby project we only need to do `npm run build`, which will put every HTML page in the `gatsby/public/` folder. This will vary depending on the project size and the images it uses, luckily for us Sanity handles the images and it's resizing so it shouldn't take too long.
 
 ## CSS Tricks
 
