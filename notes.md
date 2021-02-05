@@ -154,6 +154,8 @@
   1. First time when it creates the state variables (`hotSlices: undefiend, slicemasters: undefined`).
   1. Second time when we set hotSlices state (`hotSlices: [...], slicemasters: undefined)`).
   1. Third time when we set slicemasters state (`hotSlices: [...], slicemasters: [...])`).
+- The src we use in the image for `LoadingGrid.js` is just a trick to maintain the aspect ratio by using a transparent gif, we can create our own in <https://png-pixel.com>.
+- We achieve the loading animations by using a linear gradient and animation the position of the background.
 
 ## CSS Tricks
 
