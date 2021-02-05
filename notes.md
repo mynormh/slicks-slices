@@ -156,6 +156,9 @@
   1. Third time when we set slicemasters state (`hotSlices: [...], slicemasters: [...])`).
 - The src we use in the image for `LoadingGrid.js` is just a trick to maintain the aspect ratio by using a transparent gif, we can create our own in <https://png-pixel.com>.
 - We achieve the loading animations by using a linear gradient and animation the position of the background.
+- A trick to have formatting and syntax highlighting for GraphQL queries that don't use Gatsby's `graphql` (like `useLatestData`'s) is to add `gql` before the template string but we don't have a graphql module for this so we also need to add a `gql` dummy function that takes all the pieces and then join them back together or one that uses `String.raw`, this will trick VSCode into thinking it is indeed graphQL.
+- Since fragments are only used on the client-side when making requests in GraphQL, an alternative is to just use a template literal with the fields our fragment would have and interpolate it in the query of the fetch request.
+- Since we're not using Gatsby to fetch the images in our home page, we can't use Gatsby Image. Luckily Sanity supports image resizing in the URL. And since the images will still take a second or two to load we can use Sanity's LQIP (Low Quality Image Placeholder) while they load.
 
 ## CSS Tricks
 
