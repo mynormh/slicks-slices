@@ -169,6 +169,7 @@
 - Since our `.env` won't be in Github (expected), we can set all of our environment variables in Netlify by adding them in Settings>Deploy>Environment. Note that for `GATSBY_SERVERLESS_BASE` we can't use localhost so we'll use a relative URL `/.netlify/functions`. We'll need to trigger a new deploy after adding this variables.
 - For the images in the homepage to work we'll need to also add the netlify host to the sanity project settings. Remember we can rename the site name.
 - For any change in Sanity to be reflected in our production website we have to setup a web hook in Netlify (Settings > Build & deploy > Continuous Deployment) this will give us a URL that we have to add to Sanity in our CLI with `sanity hook create`. This will make it so anytime we make a change in Sanity Studio it will hit the URL Netlify gave us and in turn trigger a new build.
+- If we want to host our Gatsby site on a server we have, we need it to run on a subfolder/subdomain. So we add `pathPrefix` to `gatsby-config.js` and then run `npm run build -- --prefix-paths`. Then we can simply drag everything from `gatsby/public` to the server if we're using FTP for example. We'll also need to add the domain to Sanity Studio's origins. There are no serverless functions here so we'd need to host them somewhere else.
 
 ## CSS Tricks
 
