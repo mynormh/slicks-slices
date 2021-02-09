@@ -24,6 +24,12 @@ const PaginationStyles = styled.div`
       pointer-events: none;
       color: var(--grey);
     }
+    @media (max-width: 800px) {
+      .word {
+        display: none;
+      }
+      font-size: 1.4rem;
+    }
   }
 `;
 
@@ -46,7 +52,10 @@ export default function Pagination({
         disabled={!hasPrevPage}
         to={`${base}/${prevPage > 1 ? prevPage : ''}`}
       >
-        ← Prev
+        ←{' '}
+        <span title="Prev Page" className="word">
+          Prev
+        </span>
       </Link>
       {Array.from({ length: totalPages }).map((_, i) => (
         <Link
@@ -58,7 +67,10 @@ export default function Pagination({
         </Link>
       ))}
       <Link disabled={!hasNextPage} to={`${base}/${nextPage}`}>
-        → Next
+        <span title="Next Page" className="word">
+          Next
+        </span>{' '}
+        →
       </Link>
     </PaginationStyles>
   );

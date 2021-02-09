@@ -8,10 +8,9 @@ const MenuItemStyles = styled.div`
   align-content: center;
   align-items: center;
   position: relative;
-  max-height: 100px;
   .gatsby-image-wrapper {
     grid-row: span 2;
-    height: 90%;
+    height: 100%;
   }
   p {
     margin: 0;
@@ -19,7 +18,6 @@ const MenuItemStyles = styled.div`
   button {
     font-size: 1.5rem;
   }
-
   button + button {
     margin-left: 1rem;
   }
