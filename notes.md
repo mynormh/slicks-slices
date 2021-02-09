@@ -165,6 +165,10 @@
 - First we need to deploy Sanity (our backend), we can host it ourselves (harder) or simply use Sanity Studio by doing `sanity deploy`, and this will return a URL with our sanity CMS deployed. The project needs a `sanity/static` dir for this to work, this folder won't go in version control.
 - If we wanted to host Sanity ourselves we need to host everything inside `sanity/static` wherever we want and add that domain name to our allowed API routes.
 - To build or Gatsby project we only need to do `npm run build`, which will put every HTML page in the `gatsby/public/` folder. This will vary depending on the project size and the images it uses, luckily for us Sanity handles the images and it's resizing so it shouldn't take too long.
+- Deploying our Gatsby site in Netlify is pretty easy, we only need to hook our Github repo to a new Netlify site and follow the wizard. Then in Site Settings>Build & deploy we'll change the Base directory to `gatsby` and the Publish directory to `gatsby/public` and trigger a new deploy in Production Deploys > Trigger deploy.
+- Since our `.env` won't be in Github (expected), we can set all of our environment variables in Netlify by adding them in Settings>Deploy>Environment. Note that for `GATSBY_SERVERLESS_BASE` we can't use localhost so we'll use a relative URL `/.netlify/functions`. We'll need to trigger a new deploy after adding this variables.
+- For the images in the homepage to work we'll need to also add the netlify host to the sanity project settings. Remember we can rename the site name.
+- For any change in Sanity to be reflected in our production website we have to setup a web hook in Netlify (Settings > Build & deploy > Continuous Deployment) this will give us a URL that we have to add to Sanity in our CLI with `sanity hook create`. This will make it so anytime we make a change in Sanity Studio it will hit the URL Netlify gave us and in turn trigger a new build.
 
 ## CSS Tricks
 
